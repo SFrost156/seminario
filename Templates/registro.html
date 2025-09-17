@@ -1,13 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <title>Registro - Primer Seminario de Inteligencia Artificial Unitrópico</title>
+  <link rel="stylesheet" href="../Css/registro.css" />
+  <link rel="icon" href="../Resources/icons/escudo-unitropico_1.png" />
+  <script src="../Controller/registro.js" defer></script>
 </head>
 <body>
-    <h1>REGISTRO</h1>
-    <a href="../index.html" class="btn-nav">Volver</a>
+  <div class="container">
+    <div class="content">
+      
+      <header class="header">
+        <img src="../Resources/icons/logo-unitropico-01.png" alt="Logo Unitrópico" class="logo-universidad" />
+        <h1>Formulario de Registro - Seminario de Inteligencia Artificial</h1>
+        <img src="../Resources/icons/escudo-unitropico_1.png" alt="Escudo Unitrópico" class="logo-universidad" />
+      </header>
+
+      <form id="registro" action="../Php/registro.php" method="POST" class="formulario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" maxlength="50" required pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ ]{1,50}$" />
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" name="apellido" id="apellido" maxlength="50" required pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ ]{1,50}$" />
+
+        <label for="telefono1">Teléfono:</label>
+        <input type="tel" name="telefono1" id="telefono1" maxlength="10" minlength="10" required pattern="[0-9]{10}" />
+
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" name="correo" id="correo" maxlength="80" required />
+        
+        <label for="cedula">Cédula de estudiante:</label>
+        <input type="text" name="cedula" id="cedula" maxlength="15" minlength="6" required pattern="[0-9]{6,15}" />
+
+        <button type="submit" class="btn-submit">Enviar Registro</button>
+      </form>
+      
+      <nav class="menu">  
+        <a href="../index.html" class="btn-nav">🏠 Volver al inicio</a>
+      </nav>
+    </div>
+
+    <footer class="footer">
+      <img src="../Resources/icons/logo-unitropico-04.png" alt="Logo Unitrópico" class="logo-universidad" />
+
+      <div class="footer-center">
+        <div class="footer-container">
+          <p>Universidad Internacional del Trópico Americano: <b>Unitrópico</b></p>
+        </div>
+        <div class="footer-content">
+          <p>Programa de Ingeniería de Sistemas</p>
+          <p>Grupo Tic-Trópico</p>
+          <p>© 2025 Unitrópico. Todos los derechos reservados.</p>
+        </div>
+      </div>
+
+      <img src="../Resources/icons/escudo-unitropico_4.png" alt="Escudo Unitrópico" class="logo-seminario" />
+    </footer>
+  </div>
+
+  <div id="successModal" class="modal">
+    <div class="modal-content success">
+      <span class="icon">✅</span>
+      <h2>¡Registro Exitoso!</h2>
+      <p>Tu inscripción ha sido completada. Revisa tu correo para ver los detalles.</p>
+      <button class="btn-close-modal">Aceptar</button>
+    </div>
+  </div>
+
+  <div id="alreadyRegisteredModal" class="modal">
+    <div class="modal-content warning">
+      <span class="icon">⚠️</span>
+      <h2>Ya Estás Registrado</h2>
+      <p>El correo que ingresaste ya se encuentra registrado. Por favor, verifica tus datos o usa un correo diferente.</p>
+      <button class="btn-close-modal">Aceptar</button>
+    </div>
+  </div>
+
+  <div id="errorModal" class="modal">
+    <div class="modal-content error">
+      <span class="icon">❌</span>
+      <h2>Error de Registro</h2>
+      <p>Hubo un problema al procesar tu solicitud. Por favor, intenta de nuevo más tarde.</p>
+      <button class="btn-close-modal">Aceptar</button>
+    </div>
+  </div>
+
+  <div id="invalidInputModal" class="modal">
+    <div class="modal-content error">
+      <span class="icon">❌</span>
+      <h2>Datos Inválidos</h2>
+      <p>Uno o más de los campos ingresados no son válidos. Por favor, revisa y corrige la información.</p>
+      <button class="btn-close-modal">Aceptar</button>
+    </div>
+  </div>
 
 </body>
 </html>
