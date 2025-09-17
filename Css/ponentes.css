@@ -1,0 +1,445 @@
+/* ===== Tipografía local Montserrat ===== */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../Resources/Fonts/Montserrat-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../Resources/Fonts/Montserrat-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../Resources/Fonts/Montserrat-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== Variables y base ===== */
+:root {
+  --green: #00594E;
+  --green-ink: #004a49;
+  --ink: #000;
+  --bg: #f4f4f4;
+  --paper: #fff;
+  --gold: #B5A160;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  --rad: 18px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Montserrat', system-ui, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+/* ===== Contenedor principal ===== */
+.container {
+  max-width: 1100px;
+  margin: 20px auto;
+  background: var(--paper);
+  border-radius: var(--rad);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+  overflow: visible;
+}
+.content {
+  padding: 40px 40px 24px;
+}
+
+/* ===== Header ===== */
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 20px;
+  margin-bottom: 16px;
+  padding-top: 10px;
+}
+.header h1 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  color: var(--green);
+  text-align: center;
+}
+.logo-universidad {
+  max-height: 90px;
+  object-fit: contain;
+}
+@media (max-width: 700px) {
+  .header {
+    grid-template-columns: 1fr;
+    row-gap: 12px;
+  }
+  .logo-universidad {
+    justify-self: center;
+    max-height: 64px;
+  }
+  .header h1 {
+    max-width: 95%;
+    justify-self: center;
+  }
+}
+
+/* ===== Acciones / botones ===== */
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 6px 0 22px;
+}
+.btn {
+  background: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.btn:hover {
+  background: var(--gold);
+  transform: translateY(-1px);
+}
+.btn-outline {
+  background: #fff;
+  color: var(--green);
+  border: 2px solid var(--green);
+}
+.btn-outline:hover {
+  color: #fff;
+}
+.btn-sm {
+  padding: 6px 10px;
+  font-size: 0.86rem;
+  border-radius: 8px;
+}
+
+/* ===== Título de sección ===== */
+.section-title {
+  color: var(--green);
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ===== Tabla redondeada y agenda ===== */
+.agenda-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 20px auto;
+  width: 100%;
+}
+
+.agenda-container .table-wrap {
+  background: var(--paper);
+  border-radius: var(--rad);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 950px;
+  margin-bottom: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(0.95rem, 1.4vw, 1rem);
+}
+thead th {
+  background: var(--green);
+  color: #fff;
+  text-align: center;
+  padding: 14px 16px;
+  font-weight: 700;
+}
+tbody td {
+  padding: 14px 16px;
+  vertical-align: middle;
+  border-top: 1px solid #e9f3ec;
+}
+tbody tr:nth-child(odd) {
+  background: #f4f9f7;
+}
+tbody tr:hover {
+  background: #e8f4f1;
+}
+
+.agenda-note {
+  margin-top: 10px;
+  color: #3a3a3a;
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+/* ===== Conferencista: imagen Circular + datos ===== */
+.speaker {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.avatar {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  background: #fff;
+}
+.speaker-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.nombre {
+  font-weight: 700;
+  color: var(--ink);
+}
+.speaker-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tag {
+  display: inline-block;
+  background: #eef6f4;
+  color: var(--green-ink);
+  border: 1px solid #d2ebe5;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* ===== Modal (dialog) optimizado y centrado ===== */
+.modal {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  max-width: 100vw;
+  max-height: 100vh;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+}
+.modal[open]{
+  display: flex;
+}
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+}
+.modal-card {
+  width: min(800px, 95vw);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.modal-head {
+  background: var(--green);
+  color: #fff;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.modal-img-wrapper {
+  flex-shrink: 0;
+}
+.modal-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold);
+}
+.modal-header-content {
+  flex-grow: 1;
+}
+.modal-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+.modal-sub {
+  opacity: 0.95;
+  margin-top: 4px;
+  font-size: 0.92rem;
+}
+.modal-body {
+  padding: 16px 18px;
+  overflow: auto;
+}
+.modal-body h4 {
+  margin: 0.5rem 0 0.35rem;
+  color: var(--green);
+}
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 16px 18px;
+  background: #fafafa;
+  border-top: 1px solid #eee;
+}
+.close-x {
+  position: absolute;
+  color: #fff;
+  top: 12px;
+  right: 18px;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* ===== FOOTER: diseño idéntico al de registro (logos lados, texto centrado) ===== */
+.footer {
+  background: var(--green);
+  color: #fff;
+  /* el footer está dentro de .container — redondeamos sólo la base para que coincida */
+  border-bottom-left-radius: var(--rad);
+  border-bottom-right-radius: var(--rad);
+  margin-top: 20px;
+  width: 100%;
+  /* padding vertical aquí; la estructura interior se centra con .footer-inner */
+  padding: 20px 0;
+}
+
+/* inner grid controla la alineación respecto al ancho principal */
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 24px;
+  padding: 0 28px; /* separación lateral dentro del contenedor */
+}
+
+/* logos en los extremos */
+.footer-left,
+.footer-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-logo-left,
+.footer-logo-right {
+  max-height: 76px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* columna central (texto centrado) */
+.footer-center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+}
+.footer-title {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.1;
+}
+.footer-line {
+  font-size: 0.95rem;
+  opacity: 0.95;
+  margin-top: 2px;
+}
+.footer-copy {
+  font-size: 0.88rem;
+  margin-top: 4px;
+  opacity: 0.95;
+}
+
+/* small screens: apilar y centrar todo */
+@media (max-width: 700px) {
+  .container { margin: 16px; }
+  .footer-inner {
+    grid-template-columns: 1fr;
+    row-gap: 12px;
+    padding: 0 20px;
+  }
+  .footer-left,
+  .footer-right {
+    justify-self: center;
+  }
+  .footer-logo-left,
+  .footer-logo-right {
+    max-height: 56px;
+  }
+  .footer-title { font-size: 0.98rem; }
+  .footer-line, .footer-copy { font-size: 0.9rem; }
+}
+
+/* ===== Responsive: tabla -> tarjetas ===== */
+@media (max-width: 720px) {
+  thead {
+    display: none;
+  }
+  table,
+  tbody,
+  tr,
+  td {
+    display: block;
+    width: 100%;
+  }
+  tbody tr {
+    border-top: 1px solid #e6eee9;
+  }
+  tbody td {
+    padding: 10px 16px;
+  }
+  tbody td:first-child {
+    background: var(--green);
+    color: #fff;
+    border-bottom: 1px solid #e0eee9;
+  }
+  .speaker {
+    gap: 10px;
+  }
+  .avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+  }
+}
