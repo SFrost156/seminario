@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inicio - Primer Seminario de Inteligencia Artificial Unitrópico</title>
+  <link rel="stylesheet" href="Css/index.css" />
+  <link rel="icon" href="Resources/icons/escudo-unitropico_1.png" />
+  <script src="Controller/index.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      
+      <!-- HEADER -->
+      <header class="header">
+        <img src="Resources/icons/logo-unitropico-01.png" alt="Logo Unitrópico" class="logo-universidad" />
+        <h1>1er Seminario de Inteligencia Artificial Unitrópico</h1>
+        <img src="Resources/icons/escudo-unitropico_1.png" alt="Escudo Unitrópico" class="logo-universidad" />
+      </header>
+
+      <!-- MENÚ -->
+      <nav class="menu">
+        <div class="dropdown">
+          <button class="dropbtn" onclick="location.reload()">🏠 Inicio</button>
+          <ul class="dropdown-content">
+            <li><a href="#seminario">Seminario</a></li>
+            <li><a href="#reloj">Contador</a></li>
+            <li><a href="#info">Información</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <a href="Templates/registro.html" class="btn-nav">📝 Registro</a>
+        <a href="Templates/ponientes.html" class="btn-nav">👨🏻‍🎓Ponientes</a>
+      </nav>
+
+      <!-- SECCIÓN SEMINARIO -->
+      <section id="seminario" class="seminario">
+        <div class="seccion-seminario">
+          <img src="Resources/icons/icon_seminario.jpeg" alt="Logo Seminario" class="logo-seminario-grande" />
+          <p class="texto-seminario">
+            El Seminario de Proyectos de Unitrópico busca fomentar la innovación académica, investigativa y social a través de espacios donde estudiantes, docentes e investigadores presenten y discutan propuestas que generen impacto. 
+            Participa con tu proyecto, asiste a conferencias magistrales, talleres prácticos y sesiones de networking.
+          </p>
+        </div>
+
+        <div class="objetivo-seminario">
+          <h2>🎯 Objetivo General</h2>
+          <p>
+            Fortalecer los procesos de investigación aplicada y la formación de capital humano en la Orinoquía mediante el intercambio de conocimiento científico en Inteligencia Artificial (IA), con énfasis en visión por computador, energías renovables, y las dimensiones ética y laboral.
+          </p>
+        </div>
+      </section>
+
+      <!-- CONTENIDO -->
+      <section id="reloj" class="reloj">
+        <h1 style="text-align: center;">¡Sumérgete en la innovación!</h1>
+        <div id="contador" class="contador"></div>
+        
+        <div class="mensaje-motivacional">
+          Ven y participa en este seminario sobre inteligencia artificial. Vive una experiencia enriquecedora donde ampliarás tu conocimiento en una temática innovadora y esencial para el futuro.
+        </div>
+        
+        <h2 style="text-align: center;">📅 El seminario se realizará el 6 de octubre de 2025 📅</h2>
+        <div class="mensaje-motivacional">¡Te invitamos a que asistas a esta gran actividad!</div>
+      </section>
+
+      <!-- INFORMACIÓN DEL SEMINARIO -->
+      <section id="info" class="info-seminario">
+        <h2>📌 Información del Seminario</h2>
+        <p><strong>📍 Dirección:</strong> Cra. 19 #39-40, Yopal, Casanare</p>
+        <p><strong>📅 Fecha:</strong> 6 de octubre de 2025</p>
+        <p><strong>🚩 Lugar:</strong> Auditorio Fundadores</p>
+        <p><strong>🕐 Hora:</strong> De 7:00 a.m. a 6:00 p.m.</p>
+        <img src="Resources/img/Flayer1.jpeg" alt="Infografía Seminario" class="infografia" onclick="abrirModal(this.src)" />
+      </section>
+
+      <!-- CONTACTO -->
+      <section id="contacto" class="contacto">
+        <h2>📬 Contacto</h2>
+        <p>📧 Correo: <a href="mailto:Tictropico@unitropico.edu.co">Tictropico@unitropico.edu.co</a></p>
+        <p>📱 WhatsApp: <a href="https://wa.me/573114558445" target="_blank">+57 301 360 5479</a></p>
+        <p>🌐 Instagram: <a href="https://www.instagram.com/unitropicooficial/" target="_blank">@unitropico</a></p>
+        <p>🌐 Facebook: <a href="https://www.facebook.com/unitropico.edu.co" target="_blank">Universidad Unitrópico</a></p>
+        <p>🌐 Sitio web universitario: <a href="https://unitropico.edu.co/" target="_blank">Unitrópico</a></p>
+      </section>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+      <img src="Resources/icons/logo-unitropico-04.png" alt="Logo Unitrópico" class="logo-universidad" />
+
+      <div class="footer-center">
+        <div class="footer-container">
+          <p>Universidad Internacional del Trópico Americano: <b>Unitrópico</b></p>
+        </div>
+        <div class="footer-content">
+          <p>Programa de Ingeniería de Sistemas</p>
+          <p>Grupo Tic-Trópico</p>
+          <p>© 2025 Unitrópico. Todos los derechos reservados.</p>
+        </div>
+      </div>
+
+      <img src="Resources/icons/escudo-unitropico_4.png" alt="Escudo Unitrópico" class="logo-seminario" />
+    </footer>
+  </div>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal">
+    <span class="cerrar" onclick="cerrarModal()">&times;</span>
+    <img id="modal-img" class="modal-contenido" alt="Imagen ampliada" />
+  </div>
+</body>
+</html>
