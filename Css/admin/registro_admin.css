@@ -1,0 +1,51 @@
+/* Tipografía */
+@font-face{font-family:'Montserrat';src:url('../../Resources/Fonts/Montserrat-Regular.ttf') format('truetype');font-weight:400;font-style:normal;}
+@font-face{font-family:'Montserrat';src:url('../../Resources/Fonts/Montserrat-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;}
+@font-face{font-family:'Montserrat';src:url('../../Resources/Fonts/Montserrat-Bold.ttf') format('truetype');font-weight:700;font-style:normal;}
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+
+/* Base */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:'Montserrat',sans-serif;background:#f4f4f4;color:#000}
+:root{--verde:#00594E;--verde-700:#014f46;--dorado:#B5A160;--rojo:#B0302C}
+
+/* Contenedores */
+.container{max-width:1100px;margin:20px auto;background:#fff;border-radius:18px;box-shadow:0 6px 20px rgba(0,0,0,.08);overflow:hidden}
+.content{padding:40px 20px}
+
+/* Header */
+.header{display:grid;grid-template-columns:auto 1fr auto;align-items:center;column-gap:20px;margin-bottom:20px;padding-top:10px}
+.header h1{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;color:var(--verde);text-align:center;line-height:1.2}
+.logo-universidad,.logo-seminario{max-height:90px;width:auto;object-fit:contain}
+
+/* Tarjeta */
+.card{max-width:520px;margin:0 auto;border:2px solid var(--verde);border-radius:14px;padding:20px;box-shadow:0 10px 22px rgba(0,0,0,.08)}
+.card h2{text-align:center;color:var(--verde);margin-bottom:10px;font-weight:800}
+
+/* Formulario */
+.formulario{display:grid;gap:10px;margin-top:10px}
+.formulario label{font-weight:600;color:#0f172a}
+.formulario input[type="text"],.formulario input[type="password"],.formulario input[type="email"]{width:100%;padding:10px 12px;border:2px solid var(--verde);border-radius:10px}
+.enlinea{display:inline-flex;align-items:center;gap:8px}
+.acciones{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;justify-content:center}
+
+/* Botones */
+.btn-pri{background:var(--verde);color:#fff;border:0;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer;transition:filter .2s ease}
+.btn-pri[disabled]{opacity:.6;cursor:not-allowed}
+.btn-pri:hover{filter:brightness(.95)}
+.btn-sec{background:#e5e7eb;color:#111;border-radius:10px;padding:10px 14px;font-weight:700;text-decoration:none;transition:background .2s ease}
+.btn-sec:hover{background:#dfe3e7}
+
+/* Modal */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:16px;z-index:50}
+.modal[aria-hidden="false"]{display:flex}
+.modal-dialog{background:#fff;border-radius:14px;max-width:480px;width:100%;padding:18px;border:2px solid var(--verde);box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.modal-title{margin-bottom:8px;color:var(--verde);font-weight:800}
+.modal-content{color:#0f172a;line-height:1.5;margin-bottom:12px;white-space:pre-wrap}
+.modal-actions{display:flex;justify-content:flex-end;gap:8px}
+
+/* Footer */
+.footer{background:var(--verde);color:#fff;padding:30px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;column-gap:20px;text-align:center}
+.footer-center{display:flex;flex-direction:column;gap:6px}
+.footer p{margin:5px 0;font-size:.9rem}

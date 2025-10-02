@@ -1,0 +1,63 @@
+/* Rejilla para 2 métricas */
+.rejilla2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+/* Tarjetas de métricas */
+.tarjeta.metr {
+  background: #ffffff;
+  border: 2px solid #00594E;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.tarjeta.metr h3 {
+  color: #00594E;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.tarjeta.metr .valor {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #004a49;
+}
+
+/* Barra superior con info admin */
+.admin-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+  padding: 10px 16px;
+  background: #f8f8f8;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-weight: 600;
+  color: #00594E;
+}
+
+.admin-info span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-logout {
+  background-color: #b22222;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btn-logout:hover {
+  background-color: #8b1a1a;
+}
