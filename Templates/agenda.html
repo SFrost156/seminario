@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../Css/ponentes.css" />
+  <title>Cronograma – 1er Seminario de IA Unitrópico</title>
+  <link rel="icon" href="../Resources/icons/escudo-unitropico_1.png" />
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+
+      <header class="header">
+        <img src="../Resources/icons/logo-unitropico-01.png" alt="Logo Unitrópico" class="logo-universidad" />
+        <h1>Cronograma - 1er Seminario de Inteligencia Artificial Unitrópico</h1>
+        <img src="../Resources/icons/escudo-unitropico_1.png" alt="Escudo Unitrópico" class="logo-universidad" />
+      </header>
+
+      <div class="actions" aria-label="Acciones de navegación">
+        <a class="btn" href="../index.html">🏠 Ir al inicio</a>
+        <a class="btn" href="../Templates/conferencias.html">👨🏻‍🎓Conferencistas</a>
+      </div>
+
+      <div class="agenda-container">
+        <div class="table-wrap" role="region" aria-label="Tabla de expositores">
+          <table>
+           
+            <tbody id="agenda-body">
+              </tbody>
+          </table>
+        </div>
+        <p class="agenda-note">
+          Agenda del <strong>lunes 06 de octubre de 2025</strong> — Auditorio Fundadores, Unitrópico.
+        </p>
+      </div>
+
+    </div> <!-- /.content -->
+
+    <!-- ===== FOOTER (dentro del contenedor para que herede el borde redondeado inferior) ===== -->
+    <footer class="footer" role="contentinfo">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <img src="../Resources/icons/logo-unitropico-04.png" alt="Logo Unitrópico" class="footer-logo-left" />
+        </div>
+
+        <div class="footer-center" aria-label="Información Unitrópico">
+          <p class="footer-title">Universidad Internacional del Trópico Americano: <strong>Unitrópico</strong></p>
+          <p class="footer-line">Programa de Ingeniería de Sistemas</p>
+          <p class="footer-line">Grupo Tic-Trópico</p>
+          <p class="footer-copy">© 2025 Unitrópico. Todos los derechos reservados.</p>
+        </div>
+
+        <div class="footer-right">
+          <img src="../Resources/icons/escudo-unitropico_4.png" alt="Escudo Unitrópico" class="footer-logo-right" />
+        </div>
+      </div> <!-- /.footer-inner -->
+    </footer>
+
+  </div> <!-- /.container -->
+
+  <!-- ===== Modal (igual al original) ===== -->
+  <dialog class="modal" id="modal">
+    <article class="modal-card" role="document" aria-labelledby="modalTitle" aria-describedby="modalBody">
+      <header class="modal-head">
+        <div class="modal-img-wrapper">
+          <img id="modalImg" src="" alt="Foto del expositor" class="modal-avatar">
+        </div>
+        <div class="modal-header-content">
+          <div id="modalTitle" class="modal-title"></div>
+          <div id="modalSub" class="modal-sub"></div>
+        </div>
+      </header>
+      <section class="modal-body" id="modalBody"></section>
+      <footer class="modal-actions">
+        <button class="btn btn-outline" id="modalCloseBtn">Cerrar</button>
+      </footer>
+    </article>
+  </dialog>
+
+  <script>
+    // Utilidad para rutas de imagen (fallback a placeholder)
+    const imgPath = (name) => `../Resources/img/${name}`;
+    const onErr = "this.onerror=null;this.src='../Resources/img/expositores/placeholder.jpg'";
+
+    // ===== Opción A: Dataset con 'fotos: []' (puedes poner 1, 2, 3, ... imágenes por expositor)
+    const EXPO = [
+      {
+        hora: "7:30 a.m. <br> 8:00 a.m.</p>",
+        nombre: "1er Seminario de Inteligencia Artificial Unitrópico",
+        charla: "Registro e Ingreso al Auditorio",
+        fotos: ["uni.jpg"]
+      },
+      {
+        hora: "8:00 a. m. <br> 8:20 a.m.</p>",
+        nombre: "Alieth del Rocío Ávila Sanabria, Sindy Lorena Guatava Fernández",
+        charla: "Apertura del 1er Seminario de Inteligencia Artificial Unitrópico",
+        fotos: ["Alieth_del_Rocio.jpg", "Sindy_Lorena.jpg"] 
+      },
+      {
+        hora: "8:20 a.m. <br> 9:00 a.m.</p>",
+        nombre: "Dr. Félix Agustín Castro Espinoza",
+        charla: "Pendiete",
+        fotos: ["Felix_castro.png"]
+      },
+      {
+        hora: "9:00 a.m. <br> 9:20 a.m.</p>",
+        nombre: "Daniel Alexander Galindo Pabón, <br>Jeffry Slader Giraldo Perdomo,</p> Dario Alejandro Cano Moreno",
+        charla: "Detección de Clorosis en Flor Amarillo (Handroanthus chrysanthus) Utilizando Imágenes RGB y Sensores IoT Dinámicos en una Plataforma de Robot Móvil autónoma",
+        fotos: ["Daniel_Galindo.jpg", "Jefrray_Giraldo.png", "Dario_Cano.png"]
+      },
+      {
+        hora: "9:20 a.m. <br> 10:00 a.m.</p>",
+        nombre: "Diego Páez Ardila",
+        charla: "Fundamentos y Fronteras de la Visión Artificial: Del Diseño Manual a la Optimización Cuántica.",
+        fotos: ["Diego_Páez.png"]
+      },
+      {
+        hora: "10:00 a.m. <br> 10:20 a.m.</p>",
+        nombre: "Receso",
+        charla: "Espacio para refrigerio",
+        fotos: ["uni.jpg"]
+      },
+      {
+        hora: "10.20 a.m. <br> 10:40 a.m.</p>",
+        nombre: "Laura Victoria Anzoategui González, Edisson Steven Medina Solaque",
+        charla: "Diseño de un prototipo NFT (Técnica de Película Nutritiva) para Lactuca sativa con un sistema de energía renovable híbrida gestionado por IoT y Machine Learning.",
+        fotos: ["Laura_González.png", "Edinson_Medina.png"]
+      },
+      {
+        hora: "10:40 a.m. <br> 11:20 a.m.</p>",
+        nombre: "Dr. Jorge Enrique Chaparro Mesa",
+        charla: "Predictive model for estimating nitrogen density in pineapple crops from multispectral images and sensors integrated in an IoT platform.",
+        fotos: ["Jorge_Chaparro.png"]
+      },
+      {
+        hora: "11:20 a.m. <br> 11:40 a.m.</p>",
+        nombre: "Cristian Leandro Camargo Pinilla, Arnold Julian Mesa Valcárcel",
+        charla: "Proyecto Impacto del clima en el uso del suelo y el sector agropecuario en el departamento de Casanare",
+        fotos: ["Cristian_Camargo.jpeg", "Arnol_Mesa.png"]
+      },
+      {
+        hora: "11:40 a.m. <br> 12:00 p.m.</p>",
+        nombre: "Lisseth Viviana Hernández Pinzón, Nicolas Leonardo Leguizamo Daza",
+        charla: "Sistema inteligente de gestión energética y generación híbrida de energia renovable basado en IoT y machine learning para aplicaciones de agricultura de precisión.",
+        fotos: ["Lisseth_Hernández.png", "Nicolas_Daza.png"]
+      },
+      {
+        hora: "12:00 p.m. <br> 2:00 p.m.</p>",
+        nombre: "Almuerzo",
+        charla: "Espacio para almorzar ",
+        fotos: ["uni.jpg"]
+      },
+      {
+        hora: "2:00 p.m. <br> 2:40 p.m.</p>",
+        nombre: "Ilyd Bautistao",
+        charla: "Transformación empresarial con IA: Impacto en la productividad, Riesgos y Responsabilidad.",
+        fotos: ["Ilyd_Bautista.png"] 
+      },
+      {
+        hora: "2:40 p.m. <br> 3:00 p.m.</p>",
+        nombre: "Juan Sebastián Chaparro ",
+        charla: "Sistema inteligente de monitoreo y análisis biométrico basado en fusión de sensores multimodales para la identificación de patrones, predicción del redimiento y prevención de lesiones en atletas",
+        fotos: ["Juan_Chaparro.png"]
+      },
+      {
+        hora: "3:00 p.m. <br> 3:40 p.m.</p>",
+        nombre: "Pendiente",
+        charla: "",
+        fotos: ["uni.jpg"]
+      },
+      {
+        hora: "3:40 p.m. <br> 4:00 p.m.</p>",
+        nombre: "Receso",
+        charla: "Espacio para refrigerio",
+        fotos: ["uni.jpg"]
+      },
+      {
+        hora: "4:00 p.m. <br> 4:40 p.m.</p>",
+        nombre: "Anthony Cho",
+        charla: "",
+        fotos: ["cho.jpg"]
+      },
+      {
+        hora: "4:40 p.m. <br> 5:00 p.m.</p>",
+        nombre: "Eduardo Castillo Castañeda",
+        charla: "“Cuando la IA abre los ojos: visión por computadora para detectar lo imperfecto”",
+        fotos: ["Eduardo_Castillo.png"]
+      },
+      {
+        hora: "5:00 p.m. <br> 5:20 p.m.</p>",
+        nombre: "María Delia Aguilar Castellanos, Diego Armando Nieto Rodrigez, Camilo Andrés Vargas Villamizar",
+        charla: "Sistema inteligente de detección y clasificación temprana de la mancha marrón (Bipolaris oryzae) en cultivos de arroz mediante imágenes multiespectrales.",
+        fotos: ["Maria_Aguilar.png", "Diego_Nieto.jpg", "Camilo_Vargas.jpg"]
+      },
+      {
+        hora: "5:20 p.m. <br> 5:40 p.m.</p>",
+        nombre: "William Andrés Galindo Zabala, Gabriel Alexis Talero Tibaduiza",
+        charla: "Desarrollo de un prototipo de sistema inteligente de reconocimiento de placas y aforo vehicular basado en visión computacional e inteligencia artificial",
+        fotos: ["Willian_Galindo.png", "Gabriel_Talero.png"]
+      },
+      {
+        hora: "5:40 p.m. <br> 6:00 p.m.</p>",
+        nombre: "Juan Felipe Saenz",
+        charla: "Sistema inteligente para el apoyo en la gestión y control de la información de los procesos investigativos en Unitrópico",
+        fotos: ["Felipe_Saenz.png"]
+      },
+    ];
+
+    // Render filas
+const tbody = document.getElementById('agenda-body');
+
+EXPO.forEach((x, i) => {
+  // Fotos
+  const fotos = Array.isArray(x.fotos) ? x.fotos : [];
+
+  // Nombres por persona: usa x.nombres si existe; si no, intenta dividir x.nombre por comas
+  let nombres = Array.isArray(x.nombres) ? x.nombres
+               : (typeof x.nombre === 'string'
+                  ? x.nombre.split(',').map(s => s.replace(/<br\s*\/?>/gi,' ').trim()).filter(Boolean)
+                  : []);
+
+  // Asegura misma longitud (si faltan nombres, usa el nombre general)
+  if (nombres.length < fotos.length) {
+    const fallback = (typeof x.nombre === 'string' ? x.nombre.replace(/<br\s*\/?>/gi,' ').trim() : 'Por confirmar');
+    while (nombres.length < fotos.length) nombres.push(fallback);
+  }
+
+  // Columna de fotos (stack vertical)
+  const fotosHTML = (fotos.length ? fotos : ['expositores/placeholder.jpg']).map((f, idx) => `
+    <img class="avatar"
+         src="${imgPath(f)}"
+         alt="Foto ${idx + 1} de ${x.nombre}"
+         onerror="${onErr}"
+         loading="lazy">
+  `).join('');
+
+  // Columna de mini-tablas (una por foto/persona)
+  const miniTablasHTML = nombres.slice(0, fotos.length || 1).map((nom) => `
+    <table class="mini">
+      <tbody>
+        <tr>
+          <td class="mini-name">
+            <strong class="nombre">${nom}</strong>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  `).join('');
+
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td>${x.hora}</td>
+    <td>${x.charla || 'Por confirmar'}</td>
+
+    <!-- Columna FOTOS -->
+    <td class="fotos-cell fotos-stack">
+      ${fotosHTML}
+    </td>
+
+    <!-- Columna NOMBRES: una mini-tabla por foto -->
+    <td class="nombre-cell names-stack">
+      ${miniTablasHTML}
+    </td>
+  `;
+  tbody.appendChild(tr);
+});
+
+
+
+    // Modal
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSub = document.getElementById('modalSub');
+    const modalBody = document.getElementById('modalBody');
+    const modalImg = document.getElementById('modalImg');
+    const closeBtn = document.getElementById('modalCloseBtn');
+
+    tbody.addEventListener('click', (e) => {
+      const btn = e.target.closest('button[data-id]');
+      if (!btn) return;
+      const ex = EXPO[+btn.dataset.id];
+      const fotos = Array.isArray(ex.fotos) ? ex.fotos : [];
+      const principal = fotos[0] || 'expositores/placeholder.jpg';
+
+      modalImg.src = imgPath(principal);
+      modalImg.alt = `Foto de ${ex.nombre}`;
+      modalTitle.textContent = ex.nombre;
+      modalSub.textContent = `${ex.hora} • ${ex.charla || 'Por confirmar'}`;
+      modalBody.textContent = ex.bio || 'Información del conferencista por confirmar.';
+      openModal();
+    });
+
+    function openModal(){
+      if (typeof modal.showModal === 'function'){ modal.showModal(); }
+      else { modal.setAttribute('open',''); }
+      document.addEventListener('keydown', escClose);
+      modal.addEventListener('click', backdropClose);
+    }
+    function closeModal(){
+      if (typeof modal.close === 'function'){ modal.close(); }
+      else { modal.removeAttribute('open'); }
+      document.removeEventListener('keydown', escClose);
+      modal.removeEventListener('click', backdropClose);
+    }
+    function escClose(e){ if(e.key === 'Escape') closeModal(); }
+    function backdropClose(e){ if(e.target === modal) closeModal(); }
+    closeBtn.addEventListener('click', closeModal);
+  </script>
+</body>
+</html>
